@@ -1,5 +1,6 @@
 #Function Hello Wold!
-import math
+import math 
+#In this case I just imported this library for write the pi number
 
 def HelloWorld():
     print( 'Hello World!')
@@ -16,7 +17,7 @@ def reverseString(string):
         reversed_string=char + reversed_string
     print(reversed_string)
 
-
+#Function to convert radiants to degrees 
 def Radiants2Degree(a):
     degree=a*180/math.pi
     print( a, " In degrees is ", degree)
@@ -25,4 +26,3 @@ def ex1():
     print( ' "$20 says he\'s not lying " ')
 
 
-Radiants2Degree(1)

@@ -25,4 +25,21 @@ def Radiants2Degree(a):
 def ex1():
     print( ' "$20 says he\'s not lying " ')
 
+#in this function i'm getting the higher number of a list
+def getHighest(a):
+    aux=0 # Set the auxiliar variable that´s going to take the value of the highest number of the list
+    for i in a:
+        if i> aux:
+            aux=i
+    return(aux)
+#in this function i´m getting the lowest number of an array 
+def getLowest(a):
+    # set this variable that is going to take the lowest number of an array
+    aux=1000000000000000000000000000 
+    for i in a:
+        if i<aux:
+            aux=i
+    return(aux)
+
+
 

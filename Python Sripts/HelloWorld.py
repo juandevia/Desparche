@@ -41,5 +41,5 @@ def getLowest(a):
             aux=i
     return(aux)
 
-
+Radiants2Degree(49.8)
 

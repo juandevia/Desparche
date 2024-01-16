@@ -13,6 +13,7 @@ def ReverseVector(a):
 def reverseString(string):
     reversed_string = ""
     for char in string:
+
 #the order is importat due it concatenates the new letter to the beggining of the string
         reversed_string=char + reversed_string
     print(reversed_string)
@@ -41,5 +42,28 @@ def getLowest(a):
             aux=i
     return(aux)
 
-Radiants2Degree(49.8)
+#organize an array from the lowest number to the greatest
+def bubbleSortLG(a):
+    aux=0
+    for j in range (len(a)-1):
+        for i in range (len(a)-1):
+            if a[i] > a[i+1]:
+                aux= a[i+1]
+                a[i+1]=a[i]
+                a[i]=aux
+    print(a)
+
+def BubbleSortGL(a):
+     for j in range (len(a)-1):
+        for i in range (len(a)-1):
+            if a[i] < a[i+1]:
+                aux= a[i+1]
+                a[i+1],a[i] =a[i], a[i+1]
+     print(a)
+ 
+my_list = [4, 2, 7, 1, 9, 3,1,5,2,1,2,3,0.5]
+
+x=[4,3,1,7]
+
+BubbleSortGL(my_list)
 

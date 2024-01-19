@@ -1,6 +1,3 @@
-print("This line uses simple quotes! \n\n\n", "This line uses double quotes... \n\n", "Lots of blank lines in between!",sep='')
-print("\t")
-
 
 def InputFun():
     x = float (input(" Can you Input the x for the x = x (y + 1) "))
@@ -9,5 +6,18 @@ def InputFun():
     print( 'The result is', x)
 
 
-InputFun()
+
+
+y=1024
+x=1024
+z=255
+p= z is y
+
+#print('First example',id(x), id(y), sep='_', end='\t')
+#print('second example',id(x), id(y), sep=':', end='\n')
+#print('Final line')
+
+print('Dance-\nMonkey\n')
+print('Dance-\n','Monkey',sep='')
+
 

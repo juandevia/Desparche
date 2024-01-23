@@ -5,19 +5,25 @@ def InputFun():
     x *= y + 1
     print( 'The result is', x)
 
+def ExampleOfMatch():
+    a=float (input('Introduce the first number: '))
+    b=float (input('Introduce the second number: '))
+    case=int (input('Press 0 for add(+) 1 for substracting(-) 2 for multiplication(*) 3 for division(/): '))
+    match case:
+        case 0:
+            print(a,'+',b,'=',a + b)
+        case 1:
+            print(a,'-',b,'=',a - b)
+        case 2:
+            print(a,'*',b,'=',a * b)
+        case 3:
+            if b != 0:
+                print(a,'-',b,'=',a / b)
+            else:
+                print('error')
 
+    
+ExampleOfMatch()
 
-
-y=1024
-x=1024
-z=255
-p= z is y
-
-#print('First example',id(x), id(y), sep='_', end='\t')
-#print('second example',id(x), id(y), sep=':', end='\n')
-#print('Final line')
-
-print('Dance-\nMonkey\n')
-print('Dance-\n','Monkey',sep='')
 
 

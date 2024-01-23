@@ -67,5 +67,5 @@ def BubbleSort_GL(a):
 # Example usage
 my_list = [4, 2, 7, 1, 9, 3, 1, 5, 2, 1, 2, 3, 0.5]
 x = [4, 3, 1, 7,8,6,5,2,3,12,3123,5324]
-
-BubbleSort_GL(x)
+print('The','quick','sly','fox','Jumped','over','the','lazy','dog',sep='***\n',end='***')
+#BubbleSort_GL(x)

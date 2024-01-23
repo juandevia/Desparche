@@ -64,8 +64,27 @@ def BubbleSort_GL(a):
                 a[i + 1], a[i] = a[i], a[i + 1]
     print(a)
 
-# Example usage
-my_list = [4, 2, 7, 1, 9, 3, 1, 5, 2, 1, 2, 3, 0.5]
-x = [4, 3, 1, 7,8,6,5,2,3,12,3123,5324]
-print('The','quick','sly','fox','Jumped','over','the','lazy','dog',sep='***\n',end='***')
-#BubbleSort_GL(x)
+# Calculator to represent Match Fuction
+def ExampleOfMatch():
+
+    # asking for the numbers
+    a=float (input('Introduce the first number: '))
+    b=float (input('Introduce the second number: '))
+
+    #example of the function
+
+    case=int (input('Press 0 for add(+) 1 for substracting(-) 2 for multiplication(*) 3 for division(/): '))
+
+    match case:
+        case 0:
+            print(a,'+',b,'=',a + b)
+        case 1:
+            print(a,'-',b,'=',a - b)
+        case 2:
+            print(a,'*',b,'=',a * b)
+        case 3:
+            if b != 0:
+                print(a,'-',b,'=',a / b)
+            else:
+                print('error')
+

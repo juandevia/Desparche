@@ -1,4 +1,4 @@
-# Function to say Hello World!
+
 import math 
 # I imported this library to write the value of pi
 
@@ -73,7 +73,7 @@ def ExampleOfMatch():
 
     #example of the function
 
-    case=int (input('Press 0 for add(+) 1 for substracting(-) 2 for multiplication(*) 3 for division(/): '))
+    case=int (input('Press: \n 0 for add(+)\n 1 for substracting(-) \n 2 for multiplication(*) \n 3 for division(/): '))
 
     match case:
         case 0:
@@ -88,3 +88,6 @@ def ExampleOfMatch():
             else:
                 print('error')
 
+
+
+ExampleOfMatch()

@@ -57,13 +57,34 @@ def Lab3():
 
 
 def Lab4 ():
-    print('Welcome to my list menu program')
-    listNumbers=()
+    print('Welcome to my list menu program!!!!!\n\n')
+    Mylist=[1,2,4,12]
     ExitVariable=True
     while(ExitVariable != False):
         print('What would you like to do:')
-        print('  1. append an element\n  2. insert an element in the list\n  3. remove an element from the list\n  4. clear the list\n  5. reverse the list elements\n  6. Print the last element in the list\n  7. Quit')
-        break
+        case=int(input('  1. append an element\n  2. insert an element in the list\n  3. remove an element from the list\n  4. clear the list\n  5. reverse the list elements\n  6. Print the last element in the list\n  7. Quit\n\t->'))
+
+        match case:
+            case 1:
+                aux=input('Add the value waht you want to append\n\t-> ')
+                Mylist.append(aux)
+                print("New list :", Mylist)
+            case 2:
+                while True:
+                    print('Insert the position where you want to insert new value, should be between 0 & ', len(Mylist))
+                    Position=int(input('\t-> '))
+                    if Position >= 0 and Position <= len(Mylist):
+                        aux=input('Add the value ')
+                        Mylist.insert(Position,aux)
+                        print("New list :", Mylist)
+                        break
+                    else:
+                        print(Position,' is No a valid position')
+
+            case other:
+                print('xd')
+                ExitVariable=True
+        
 
 
 Lab4()

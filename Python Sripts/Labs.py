@@ -58,17 +58,18 @@ def Lab3():
 
 def Lab4 ():
     print('Welcome to my list menu program!!!!!\n\n')
-    Mylist=[1,2,4,12]
+    Mylist=['1','2','4', '12']
     ExitVariable=True
+    print('Original List', Mylist)
     while(ExitVariable != False):
         print('What would you like to do:')
-        case=int(input('  1. append an element\n  2. insert an element in the list\n  3. remove an element from the list\n  4. clear the list\n  5. reverse the list elements\n  6. Print the last element in the list\n  7. Quit\n\t->'))
+        case=int(input('  1. append an element\n  2. insert an element in the list\n  3. remove an element from the list\n  4. clear the list\n  5. reverse the list elements\n  6. Print the last element in the list\n  7. Quit\n\t-> '))
 
         match case:
             case 1:
-                aux=input('Add the value waht you want to append\n\t-> ')
+                aux=input('Add the value that you want to append\n\t-> ')
                 Mylist.append(aux)
-                print("New list :", Mylist)
+                
             case 2:
                 while True:
                     print('Insert the position where you want to insert new value, should be between 0 & ', len(Mylist))
@@ -76,15 +77,39 @@ def Lab4 ():
                     if Position >= 0 and Position <= len(Mylist):
                         aux=input('Add the value ')
                         Mylist.insert(Position,aux)
-                        print("New list :", Mylist)
+                        
                         break
                     else:
                         print(Position,' is No a valid position')
+            case 3:
+                print('Select the item that you want to delete')
+                while True:
+                    print(Mylist)
+                    aux=input('Enter a value of the list above\t')
+                    if not aux in Mylist:
+                        print('Item not in the list')
+                    else:
+                        Mylist.remove(aux)
+                        break
+            case 4:
+                Mylist = []
+            
+            case 5:
+                aux = []
+                for i in range(0, len(Mylist)):
+                    aux.append(Mylist[len(Mylist) - 1 - i])
+                Mylist=aux
+            case 6:
+                print('The last element is', Mylist[len(Mylist)-1])
+
+            case 7:
+                ExitVariable=False
+                
 
             case other:
-                print('xd')
-                ExitVariable=True
-        
+                print('non valid option were selected')
+
+        print("New list :", Mylist,'\n') 
 
 
 Lab4()

@@ -49,10 +49,21 @@ def Lab3():
                 print('The status code for netflix.com is :',response.status_code) 
 
             case 3: 
+                # Default option 
                 print('bye bye')
                 Quit= True
             case other:
                 print('error no valid code')
 
 
-Lab3()
+def Lab4 ():
+    print('Welcome to my list menu program')
+    listNumbers=()
+    ExitVariable=True
+    while(ExitVariable != False):
+        print('What would you like to do:')
+        print('  1. append an element\n  2. insert an element in the list\n  3. remove an element from the list\n  4. clear the list\n  5. reverse the list elements\n  6. Print the last element in the list\n  7. Quit')
+        break
+
+
+Lab4()

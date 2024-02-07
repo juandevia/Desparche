@@ -57,6 +57,7 @@ def Lab3():
 
 
 def Lab4 ():
+    #Is a menu that helps to understand how to use lists 
     print('Welcome to my list menu program!!!!!\n\n')
     Mylist=['1','2','4', '12']
     ExitVariable=True
@@ -117,19 +118,23 @@ def Lab5():
     Quit= False
     case='0'
     while Quit != True:
+        #menu of the exeercise
         print('Hello what would you like to do :')
         print('0. in case you want to know the names of the astronauts in the space','1. in case you want to know the altitude an latitude of ISS', '2. in cae you want to know the number of astronauts in the space', sep='\n')
         case=input('->')
         print('\n')
         match case:
             case '0':
+                #In this case I'm getting the response code from this link 
                 response = requests.get('http://api.open-notify.org/astros.json')
+                #from that response im getting the data and put it in a library originally was json
                 JsonData=response.json()
                 print('The Current astronauts in the space are')
                 for i in JsonData['people']:
                     print(i['name'])
                 print('Awesome!!!!\n\n')
             case '1':
+                #same as first link but the library is different
                 response= requests.get('http://api.open-notify.org/iss-now.json')
                 JsonData=response.json()
                 print('The position of the ISS is')
@@ -138,10 +143,60 @@ def Lab5():
             case '2':
                 response = requests.get('http://api.open-notify.org/astros.json')
                 JsonData=response.json()
-                print('The total number of Astronauts in the space is ', len(JsonData['people']))
+                print('The total number of Astronauts in the space is ', len(JsonData['people'], ))
         
             case other:
 
                 Quit=True
 
-Lab5()
+def lab5Bonus():
+    
+    print("\nWelcome to the program I'm going to create a Deck for you ")
+    url = "https://www.deckofcardsapi.com/api/deck/new/"
+    shuffleUrl = "https://deckofcardsapi.com/api/deck/<<deck_id>>/shuffle/?remaining=true"
+    response = requests.get(url)
+    Deck = response.json()
+    Quit = False
+    shuffleUrl = shuffleUrl.replace('<<deck_id>>',Deck['deck_id'])
+
+    while True:
+        print(' \n Press 1 if you want to Shuffle the deck \n Press 2 if you want to draw cards \n Press 3 if you want to quit ')
+        case = input('  --> ')
+        match case:
+            case '1':
+                response =requests.get(shuffleUrl)
+                Deck = response.json()
+                print('Success', Deck["shuffled"], 'Remaining cards on deck: ', Deck['remaining'], '\n')
+            case '2':
+                while True:
+
+                    NCards=int(input('Write how many cards you want to draw \n->'))
+
+                    if NCards > 0 and NCards < int(Deck['remaining']):
+                        NCards = str(NCards)
+                        urlDraw = 'https://deckofcardsapi.com/api/deck/<<deck_id>>/draw/?count=' + NCards
+                        urlDraw = urlDraw.replace('<<deck_id>>',Deck['deck_id'])
+                        response = requests.get(urlDraw)
+                        Deck = response.json()
+                        break
+                    else:
+                        print('No valid option try again')
+                        
+                for i in Deck["cards"]:
+                    print('--->', i["value"],i["suit"])
+
+                
+                print('\n','remaining cards: ', Deck['remaining'],'\n')
+            case '3' :
+                break
+
+            case other:
+                print('Error try again \n')
+
+
+       
+
+
+
+    
+lab5Bonus()

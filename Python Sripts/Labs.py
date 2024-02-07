@@ -1,6 +1,13 @@
 from urllib.request import urlopen 
 import json
 import requests
+import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
+from io import BytesIO
+from IPython.display import display, SVG
+import cv2
+import numpy as np
+
 
 def Lab2():
     
@@ -149,7 +156,7 @@ def Lab5():
 
                 Quit=True
 
-def lab5Bonus():
+def Lab5Bonus():
     
     print("\nWelcome to the program I'm going to create a Deck for you ")
     url = "https://www.deckofcardsapi.com/api/deck/new/"
@@ -172,7 +179,7 @@ def lab5Bonus():
 
                     NCards=int(input('Write how many cards you want to draw \n->'))
 
-                    if NCards > 0 and NCards < int(Deck['remaining']):
+                    if NCards > 0 and NCards <= int(Deck['remaining']):
                         NCards = str(NCards)
                         urlDraw = 'https://deckofcardsapi.com/api/deck/<<deck_id>>/draw/?count=' + NCards
                         urlDraw = urlDraw.replace('<<deck_id>>',Deck['deck_id'])
@@ -184,10 +191,29 @@ def lab5Bonus():
                         
                 for i in Deck["cards"]:
                     print('--->', i["value"],i["suit"])
+                    png_url = i["images"]["png"]
+                    # Download the PNG file
+
+
+                    response = requests.get(png_url)
+                    png_data = BytesIO(response.content)
+
+                    # Read the PNG data using cv2
+                    
+                    png_array = np.asarray(bytearray(png_data.read()), dtype=np.uint8)
+                    img = cv2.imdecode(png_array, cv2.IMREAD_UNCHANGED)
+
+                    # Display the PNG image using cv2
+                    cv2.imshow(png_url, img)
+                    cv2.waitKey(0)
+                    cv2.destroyAllWindows()
+                    
+                    
 
                 
                 print('\n','remaining cards: ', Deck['remaining'],'\n')
             case '3' :
+                cv2.destroyAllWindows()
                 break
 
             case other:
@@ -199,4 +225,4 @@ def lab5Bonus():
 
 
     
-lab5Bonus()
+Lab5Bonus()

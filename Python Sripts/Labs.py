@@ -107,9 +107,41 @@ def Lab4 ():
                 
 
             case other:
-                print('non valid option were selected')
+                print('non valid option was selected')
 
         print("New list :", Mylist,'\n') 
 
 
-Lab4()
+def Lab5():
+ 
+    Quit= False
+    case='0'
+    while Quit != True:
+        print('Hello what would you like to do :')
+        print('0. in case you want to know the names of the astronauts in the space','1. in case you want to know the altitude an latitude of ISS', '2. in cae you want to know the number of astronauts in the space', sep='\n')
+        case=input('->')
+        print('\n')
+        match case:
+            case '0':
+                response = requests.get('http://api.open-notify.org/astros.json')
+                JsonData=response.json()
+                print('The Current astronauts in the space are')
+                for i in JsonData['people']:
+                    print(i['name'])
+                print('Awesome!!!!\n\n')
+            case '1':
+                response= requests.get('http://api.open-notify.org/iss-now.json')
+                JsonData=response.json()
+                print('The position of the ISS is')
+                #print(JsonData['iss_position']['latitude'])
+                print('Latitude: ',JsonData['iss_position']['latitude'], 'Longitude: ', JsonData['iss_position']['longitude'],'\n\n')
+            case '2':
+                response = requests.get('http://api.open-notify.org/astros.json')
+                JsonData=response.json()
+                print('The total number of Astronauts in the space is ', len(JsonData['people']))
+        
+            case other:
+
+                Quit=True
+
+Lab5()

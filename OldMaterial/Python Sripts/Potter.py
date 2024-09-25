@@ -25,17 +25,6 @@ def getId2(dataJson,name):
         if(i['name'] == name):
             info = i
             return info
-        
-def getId(dataJson,name):
-    info={}
-    for i in dataJson:
-        print(i['name'])
-        if(i['name'] == name):
-            print(i['name'])
-            info=i
-            return info
-        else:
-            return 0
      
 def printDict(dictionary):
     for key, value in dictionary.items():
